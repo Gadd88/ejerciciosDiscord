@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const ProductosContext = createContext()
 
 const ProductosContextProvider = ({children}) => {
-    const [productosCarritos, setProductosCarrito] = useState([])
+    const [productosCarrito, setProductosCarrito] = useState([])
     const [productos, setProductos] = useState([])
     
     useEffect(()=>{
@@ -17,15 +17,31 @@ const ProductosContextProvider = ({children}) => {
     },[])
 
     const eliminarDelCarrito = (id) => {
-        const nuevoCarrito = productosCarritos.filter(producto => producto.id != id)
+        const nuevoCarrito = productosCarrito.filter(producto => producto.id != id)
         setProductosCarrito(nuevoCarrito)
+    }
+    const agregarAlCarrito = (producto) => {
+        const existeItem = productosCarrito.find(item => item.id === producto.id)
+        if(existeItem){
+            setProductosCarrito((prev) => prev.map((item) => (
+                item.id === producto.id 
+                ? {...item, cantidad: item.cantidad + 1}
+                : item
+                )))
+        }else{
+            setProductosCarrito([
+                ...productosCarrito,
+                {...producto, cantidad: 1}  
+                ])
+        }
+
     }
 
     return (
         <ProductosContext.Provider
             value={{
-                productosCarritos,
-                setProductosCarrito,
+                productosCarrito,
+                agregarAlCarrito,
                 productos,
                 eliminarDelCarrito
             }}>

@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import Producto from "./Producto"
 import { ProductosContext } from "../context/ProductosContext"
 
 const ListaProductos = () => {
     
     const { productos} = useContext(ProductosContext)
-    
+
   return (
     <div className="w-1/2">
         <h1>Lista de Productos</h1>
@@ -13,9 +13,10 @@ const ListaProductos = () => {
             <ul>
                 {
                     productos.map(producto => (
-                        <Producto 
-                            key={producto.id}
-                            producto={producto} />
+                        <li key={producto.id}>
+                            <Producto
+                                producto={producto} />
+                        </li>
                     ))
                 }
             </ul>
