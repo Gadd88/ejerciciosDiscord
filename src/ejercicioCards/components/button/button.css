@@ -1,0 +1,10 @@
+.btn-card{
+    width: 100px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #aaa;
+    border: none;
+    outline: none;
+    color: black;
+    font-weight: bolder;
+}

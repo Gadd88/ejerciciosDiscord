@@ -1,0 +1,35 @@
+:root{
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+}
+
+.card{
+    width: 300px;
+    padding: 20px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.sedan{
+    background-color: var(--bright-orange)
+}
+.suvs{
+    background-color: var(--dark-cyan);
+}
+.luxury{
+    background-color: var(--very-dark-cyan);
+}
+
+.card2{
+    width: 300px;
+    padding: 20px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
